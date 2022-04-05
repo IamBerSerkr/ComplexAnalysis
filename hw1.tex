@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,hyperref}
+\usepackage{graphicx}
+\graphicspath{ {./Resources/} }
+
+\begin{document}
+
+
+\title{Homework Assingment }
+\author{Evan Leonov\\Complex Analysis} 
+
+\maketitle
+
+\paragraph{\textbf{Problem 1}} Evaluate the integral 
+\[\oint\limits_{C}\mathrm{\frac{e^z}{(z-i)^2\cdot(z+2)}dz}\]
+
+\begin{enumerate}
+\item given \(C=C_1: |\mathrm{z-i} |=2\)
+\item given \(C=C_2: \mathrm{|z+2-i|}=3\) 
+\end{enumerate}
+
+\textbf{Solution: }
+	Firstly, we find roots of the denominator of the integrand:
+\[\mathrm{(z-i)^2\cdot(z+2)}  = 0 \rightarrow  \mathrm{z=i}\;and\:\mathrm{z=-2}\]
+
+\begin{center}
+\includegraphics[scale=0.5]{plot1}
+\end{center}
+
+1. A disk \(\mathrm{D} := \{z : |z-i|  < 2\}\) containts only one of the roots (\(z = i\)), therefore we can calculate the integral as usual:
+
+\[\oint\limits_{C_1}\mathrm{\frac{e^z}{(z-i)^2\cdot(z+2)}dz} = \oint\limits_{\mathrm{|z-i|}=2}\mathrm{\frac{e^z}{(z-i)^2\cdot(z+2)}dz} = [\frac{e^z}{(z-i)^2\cdot(z+2)}=\frac{\frac{e^z}{z+2}}{(z-i)^2}]==\oint\limits_{\mathrm{|z-i|}=2}\mathrm{\frac{\frac{e^z}{z+2}}{(z-i)^2}dz}\]
+
+Using Cauchy's Integral Formula for derivatives we evaluate the integral:
+
+
+\[\oint\limits_{\mathrm{|z-i|}=2}\mathrm{\frac{\frac{e^z}{z+2}}{(z-i)^2}dz }= \frac{2 \pi i}{1!}\cdot (\frac{e^z}{z+2})'|_{\mathrm{z=i}}=2 \pi i \cdot \frac{e^z\cdot (z+1)}{(z+2)^2}|_{\mathrm{z=i}}=2 \pi i \cdot \frac{e^i\cdot (i+1)}{(i+2)^2}\]
+
+
+2. A disk \(\mathrm{D} := \{z : \mathrm{|z+2-i|}<3\}\) containts both of the roots (\(z = i\; and \;z=-2\)) hence we will evaluate the integral as follows:
+
+\[\oint\limits_{C}\mathrm{\frac{e^z}{(z-i)^2\cdot(z+2)}dz} = \oint\limits_{\mathrm{l_1}}\mathrm{\frac{e^z}{(z-i)^2\cdot(z+2)}dz}+ \oint\limits_{\mathrm{l_2}}\mathrm{\frac{e^z}{(z-i)^2\cdot(z+2)}dz}\]
+
+where \(\mathrm{l_1}\) and \(\mathrm{l_2}\) are the contours contating only one of the roots. 
+Let  \(\mathrm{l_1}\) be \(|z - i| = 1\), \(\mathrm{l_2}\) be \(|z+2| = 1\).
+
+\[\oint\limits_{C}\mathrm{\frac{e^z}{(z-i)^2\cdot(z+2)}dz} = \oint\limits_{\mathrm{|z - i| = 1}}\mathrm{\frac{\frac{e^z}{z+2}}{(z-i)^2}dz}+ \oint\limits_{\mathrm{l_2}}\mathrm{\frac{\frac{e^z}{(z-i)^2}}{z-(-2)}dz} = \frac{2 \pi i}{1!}\cdot (\frac{e^z}{z+2})'|_{\mathrm{z=i}} + \frac{2 \pi i}{0!}\cdot (\frac{e^z}{(z-i)^2})|_{\mathrm{z=-2}} \]
+
+\[
+    = 2 \pi i \cdot \frac{e^i\cdot (i+1)}{(i+2)^2} + 2 \pi i \cdot \frac{e^-2}{(i+2)^2} = 
+        \frac{2 \pi i}{(i+2)^2}\cdot(e^-2 + e^i\cdot(i+1))
+\]
+
+
+\end{document}
